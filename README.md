@@ -27,8 +27,5 @@ Depois, acesse http://localhost:4200/ no navegador.
 
 ## Objetivo
 
-Praticar e desenvolver conhecimentos em Angular durante as atividades propostas em aula.
+Praticar e desenvolver conhecimentos em Angular durante as atividades em sala de aula Senac.
 
----
-
-**Autora:** Giovanna Galichio
