@@ -1,0 +1,51 @@
+<h1>Lista de Atividades</h1>
+<section class="formulario">
+    <!-- Por causa do FormsModule o Angular vai gerenciar o submit do formulário -->
+    <form (ngSubmit)=" editando === null ? adicionar() : salvar()">
+        <label for="nome">Atividade: </label>
+        <!-- [(ngModel)]="nome" Cria um vínculo de duas mãos com o TS -->
+        <input type="text" id="nome" name="nome" [(ngModel)]="nome" placeholder="Nova Atividade">
+
+        <button type="submit">{{ editando === null ? "Adicionar" : "Salvar"}}</button>
+        <button type="button" (click)="cancelar()">Cancelar</button>
+    </form>
+</section>
+
+<section>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Atividade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+
+        <!-- Vamos começar a fazer a varredura do vetor lista -->
+        <tbody>
+
+            @for (atividade of lista; track atividade.id) {
+                <tr>
+                <!-- Vínculo simples entre html e TS  -> Somente leitura de valores -->
+                     <td>{{ atividade.id }}</td>
+                    <td>{{ atividade.nome }}</td>
+                    <td>
+                        <button (click)="editar(atividade)">Editar</button>
+                        <button (click)="excluir(atividade.id)">Excluir</button>
+                    </td>
+                </tr>
+            }
+            
+            @empty{
+                <!-- Mesclar as 3 colunas -->
+                <tr>
+                    <td colspan="3">Nenhuma atividade cadastrada</td>
+                  </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</section>
